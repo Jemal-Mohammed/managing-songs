@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import  SongStatistics from './components/SongStatistics';
 import AddSongs from './components/songs/AddSongs';
 import { Master } from './components/layout/Master';
@@ -34,6 +34,7 @@ const App = () => {
               <Route path="edit-song/:id" element={<EditSong />} />
               <Route path="statistics" element={<SongStatistics />} />
               <Route path="/search-results/:keyword" element={<SearchisResult />} />
+              <Route path="*" element={<Navigate to="/" />} />
 
             </Route>
           </Routes>
