@@ -127,8 +127,6 @@ const ListOfSongs: React.FC = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteSongStart(songId));
-    dispatch(fetchSongsStart({ keyword: keyword || '', currentPage }));
-
       }
     });
   };
