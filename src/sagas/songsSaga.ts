@@ -49,7 +49,7 @@ function* deleteSongSaga(action: PayloadAction<string>) {
     yield call(axios.delete, `https://songs-api-xh5q.onrender.com/api/songs/${songId}`);
     
     // Assuming your API returns the updated list of songs after deletion
-    const updatedSongs: Song[] = yield call(axios.post,"https://songs-api-xh5q.onrender.com/api/songs"); // Implement fetchSongs function to get the updated list
+    const updatedSongs: Song[] = yield call(axios.get,"https://songs-api-xh5q.onrender.com/api/songs"); // Implement fetchSongs function to get the updated list
 
     // Dispatch the action with the correct payload
     yield put(deleteSongSuccess(updatedSongs));
