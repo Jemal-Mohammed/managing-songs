@@ -64,14 +64,14 @@ const songsSlice = createSlice({
         // Additional handling if needed
       };
     },
-    deleteSongSuccess(state, action: PayloadAction<Song[]>) {
-      return {
-        ...state,
-        loading: false,
-        data: action.payload,
+    deleteSongSuccess(state, action: PayloadAction<string>) {
+      return{
+      ...state,
+        loading : false,
+        message:action.payload,
+        // data:action.payload,
       };
-    },
-       
+    },    
     deleteSongFailure(state, action: PayloadAction<string>) {
       state.loading = false;
       state.error = action.payload;
