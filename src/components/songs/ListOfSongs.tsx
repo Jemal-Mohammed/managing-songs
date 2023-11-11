@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 // import Song from '../interfaces/Song';
 import Preloader from '../Preloader';
+import { toast } from 'react-toastify';
 
 const ListContainer = styled.div`
   margin: 40px;
@@ -127,6 +128,18 @@ const ListOfSongs: React.FC = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteSongStart(songId));
+        toast("Song deleted successfully", {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+    dispatch(fetchSongsStart({ keyword: keyword || '', currentPage }));
+
       }
     });
   };
